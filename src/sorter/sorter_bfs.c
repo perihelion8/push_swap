@@ -6,30 +6,53 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:55:46 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 11:52:32 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/14 16:24:36 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sorter_bfs.h"
 
+static t_state	*sorter_bfs_state_init(int *values, int size)
+{
+	t_state	*state;
+	t_arri	*sorted;
+	t_uint	i;
+
+	state = sorter_bfs_state_create(size);
+	if (!state)
+		return (NULL);
+	sorted = arri_create(size);
+	if (!sorted)
+	{
+		sorter_bfs_state_destroy(state);
+		return (NULL);
+	}
+	i = 0;
+	while (i < (t_uint)size)
+		arri_append(sorted, values[i++]);
+	arri_sort(sorted);
+	i = 0;
+	while (i < (t_uint)size)
+		arri_append(state->a, arri_index_of(sorted, values[i++]));
+	arri_destroy(sorted);
+	arri_print(state->a);
+	return (state);
+}
+
 static t_queue	*sorter_bfs_queue_init(int *values, int size)
 {
 	t_queue	*queue;
 	t_state	*state;
-	t_uint	i;
 
 	queue = queue_create();
 	if (!queue)
 		return (NULL);
-	state = sorter_bfs_state_create(size);
+	state = sorter_bfs_state_init(values, size);
 	if (!state)
 	{
 		queue_destroy(queue, sorter_bfs_state_destroy);
 		return (NULL);
 	}
-	i = 0;
-	while (i < (t_uint)size)
-		arri_append(state->a, values[i++]);
 	if (!queue_enqueue(queue, state))
 	{
 		sorter_bfs_state_destroy(state);

@@ -6,27 +6,27 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:32:52 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/13 17:48:19 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/14 16:18:19 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "arri_internal.h"
 
-t_arri	*arri_create(t_uint capacity)
+t_arri	*arri_create(t_uint cap)
 {
 	t_arri	*arri;
 
 	arri = malloc(sizeof(*arri));
 	if (!arri)
 		return (NULL);
-	arri->buff = malloc(capacity * sizeof(int));
+	arri->buff = malloc(cap * sizeof(int));
 	if (!arri->buff)
 	{
 		arri_destroy(arri);
 		return (NULL);
 	}
-	arri->cap = capacity;
+	arri->cap = cap;
 	arri->len = 0;
 	return (arri);
 }
