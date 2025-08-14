@@ -6,29 +6,28 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:31:15 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/12 12:31:46 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/13 18:03:16 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRI_H
 # define ARRI_H
 
-#include "types.h"
+# include "types.h"
 
-typedef struct
-{
-	int		*buff;
-	t_uint	cap;
-	t_uint	len;
-}	t_arri;
+typedef struct s_arri	t_arri;
 
-t_arri	*arri_create(t_uint);
-void	arri_destroy(t_arri *);
-int		arri_is_sorted(t_arri *);
-t_arri	*arri_copy(t_arri *);
-int		arri_rule_push(t_arri *, t_arri *);
-int		arri_rule_swap(t_arri *);
-int		arri_rule_rotate(t_arri *);
-int		arri_rule_reverse_rotate(t_arri *);
+t_arri	*arri_create(t_uint cap);
+t_arri	*arri_copy(t_arri *src);
+t_uint	arri_len(t_arri *arri);
+void	arri_destroy(t_arri *arri);
+int		arri_append(t_arri *arri, int n);
+int		arri_get(t_arri *arri, t_uint i);
+int		arri_is_empty(t_arri *arri);
+int		arri_is_sorted(t_arri *arri);
+int		arri_push(t_arri *dst, t_arri *src);
+int		arri_swap(t_arri *arri);
+int		arri_rotate(t_arri *arri);
+int		arri_rrotate(t_arri *arri);
 
 #endif

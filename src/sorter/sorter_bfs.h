@@ -6,17 +6,20 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 23:52:01 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/12 15:10:41 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/13 17:59:10 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORTER_SORT_BFS_H
-# define SORTER_SORT_BFS_H
+#ifndef SORTER_BFS_H
+# define SORTER_BFS_H
 
-#include <stdlib.h>
-#include "sorter_internal.h"
+# include <stdlib.h>
+# include "arri/arri.h"
+# include "queue/queue.h"
+# include "types.h"
 
-typedef struct {
+typedef struct s_state
+{
 	t_arri	*a;
 	t_arri	*b;
 	t_arri	*rules;
@@ -37,11 +40,12 @@ enum e_rule
 	RRR,
 };
 
-int		sorter_bfs(t_arri *);
-t_state	*sorter_bfs_state_create(int);
-void	sorter_bfs_state_destroy(void *);
-t_state *sorter_bfs_state_copy(t_state *);
-void	sorter_bfs_state_rule_append(t_state *, int);
-
+int		sorter_bfs(int *values, int size);
+t_state	*sorter_bfs_state_create(int cap);
+t_state	*sorter_bfs_state_copy(t_state *state);
+void	sorter_bfs_state_destroy(void *s);
+int		sorter_bfs_rules_apply_rule(t_state *state, int rule);
+void	sorter_bfs_rules_print(t_arri *rules);
+void	sorter_putstrln(const char *str);
 
 #endif

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.c                                              :+:      :+:    :+:   */
+/*   list_mem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 20:17:50 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/07 11:34:23 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/13 17:37:10 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "internal.h"
+#include "list_internal.h"
 
 t_list_node	*list_node_create(int data)
 {

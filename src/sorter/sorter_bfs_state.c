@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 06:14:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/12 16:46:17 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/13 15:46:01 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ t_state	*sorter_bfs_state_create(int cap)
 {
 	t_state	*state;
 
-	state = malloc(sizeof *state);
+	state = malloc(sizeof(*state));
 	if (!state)
 		return (NULL);
 	state->a = arri_create(cap);
 	state->b = arri_create(cap);
-	state->rules = arri_create(100);
+	state->rules = arri_create(50);
 	if (!state->a || !state->b || !state->rules)
 	{
 		sorter_bfs_state_destroy(state);
@@ -32,7 +32,7 @@ t_state	*sorter_bfs_state_create(int cap)
 
 void	sorter_bfs_state_destroy(void *s)
 {
-	t_state *state;	
+	t_state	*state;	
 
 	if (s)
 	{
@@ -51,7 +51,7 @@ t_state	*sorter_bfs_state_copy(t_state *state)
 {
 	t_state	*copy;
 
-	copy = malloc(sizeof *copy);
+	copy = malloc(sizeof(*copy));
 	if (!state)
 		return (NULL);
 	copy->a = arri_copy(state->a);
@@ -63,10 +63,4 @@ t_state	*sorter_bfs_state_copy(t_state *state)
 		return (NULL);
 	}
 	return (copy);
-}
-
-void	sorter_bfs_state_rule_append(t_state *state, int rule)
-{
-	state->rules->buff[state->rules->len] = rule;
-	state->rules->len++;
 }

@@ -6,13 +6,20 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:29:27 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/12 07:49:13 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/12 20:03:28 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRI_INTERNAL_H
 # define ARRI_INTERNAL_H
 
-#include "arri.h"
+# include "arri.h"
+
+struct s_arri
+{
+	int		*buff;
+	t_uint	cap;
+	t_uint	len;
+};
 
 #endif

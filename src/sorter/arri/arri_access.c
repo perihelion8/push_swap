@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorter.h                                           :+:      :+:    :+:   */
+/*   arri_access.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 13:58:44 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/13 18:00:42 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/13 17:25:15 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/13 18:01:38 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORTER_H
-# define SORTER_H
+#include "arri_internal.h"
 
-#include "types.h"
+t_uint	arri_len(t_arri *arri)
+{
+	return (arri->len);
+}
 
-int	ops_sort(int *values, int size);
-
-#endif
+int	arri_get(t_arri *arri, t_uint i)
+{
+	return (arri->buff[i]);
+}

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   queue.c                                            :+:      :+:    :+:   */
+/*   queue_mem.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 14:20:43 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/12 15:35:17 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/13 15:31:52 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/13 18:17:53 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "internal.h"
+#include "queue_internal.h"
 
 t_queue_node	*queue_node_create(void *data)
 {
 	t_queue_node	*qnode;
 
-	qnode = malloc(sizeof *qnode);
+	qnode = malloc(sizeof(*qnode));
 	if (!qnode)
 		return (NULL);
 	qnode->data = data;
@@ -29,7 +29,7 @@ t_queue	*queue_create(void)
 {
 	t_queue	*q;
 
-	q = malloc(sizeof *q);
+	q = malloc(sizeof(*q));
 	if (!q)
 		return (NULL);
 	q->head = NULL;
@@ -38,16 +38,17 @@ t_queue	*queue_create(void)
 	return (q);
 }
 
-void	queue_destroy(t_queue *q, void (*free_data)(void *))
+void	queue_destroy(t_queue *q, void (*data_destroy)(void *))
 {
 	t_queue_node	*old_head;
 
-	if (!q) return ;
+	if (!q)
+		return ;
 	while (q->head)
 	{
 		old_head = q->head;
 		q->head = q->head->next;
-		free_data(old_head->data);
+		data_destroy(old_head->data);
 		free(old_head);
 	}
 	free(q);
@@ -60,7 +61,8 @@ int	queue_enqueue(t_queue *q, void *data)
 	if (!q)
 		return (0);
 	qnode = queue_node_create(data);
-	if (!qnode) return (0);
+	if (!qnode)
+		return (0);
 	if (q->head)
 	{
 		q->tail->next = qnode;
@@ -90,16 +92,4 @@ void	*queue_dequeue(t_queue *q)
 		return (data);
 	}
 	return (NULL);
-}
-
-int		queue_is_empty(t_queue *q)
-{
-	if (q->len > 0)
-		return (0);
-	return (1);
-}
-
-int		queue_get_len(t_queue *q)
-{
-	return (q->len);
 }

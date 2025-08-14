@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem.c                                              :+:      :+:    :+:   */
+/*   arri_mem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:32:52 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/12 12:40:51 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/13 17:48:19 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_arri	*arri_create(t_uint capacity)
 {
 	t_arri	*arri;
 
-	arri = malloc(sizeof *arri);
+	arri = malloc(sizeof(*arri));
 	if (!arri)
 		return (NULL);
 	arri->buff = malloc(capacity * sizeof(int));
@@ -57,4 +57,13 @@ t_arri	*arri_copy(t_arri *src)
 	}
 	copy->len = src->len;
 	return (copy);
+}
+
+int	arri_append(t_arri *arri, int n)
+{
+	if (arri->len >= arri->cap)
+		return (0);
+	arri->buff[arri->len] = n;
+	arri->len++;
+	return (1);
 }

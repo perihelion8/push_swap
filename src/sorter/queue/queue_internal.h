@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorter.h                                           :+:      :+:    :+:   */
+/*   queue_internal.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 13:58:44 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/13 18:00:42 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/13 15:33:19 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/13 18:06:26 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORTER_H
-# define SORTER_H
+#ifndef QUEUE_INTERNAL_H
+# define QUEUE_INTERNAL_H
 
-#include "types.h"
+# include "queue.h"
 
-int	ops_sort(int *values, int size);
+typedef struct s_queue_node
+{
+	void				*data;
+	struct s_queue_node	*next;
+}	t_queue_node;
+
+struct s_queue
+{
+	t_queue_node	*head;
+	t_queue_node	*tail;
+	int				len;
+};
+
+t_queue_node	*queue_node_create(void *data);
 
 #endif

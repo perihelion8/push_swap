@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   arri_rules.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:36:57 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/12 07:48:22 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/13 17:32:32 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arri_internal.h"
 
-int	arri_rule_push(t_arri *dst, t_arri *src)
+int	arri_push(t_arri *dst, t_arri *src)
 {
 	int		tmp;
 	t_uint	i;
@@ -38,7 +38,7 @@ int	arri_rule_push(t_arri *dst, t_arri *src)
 	return (1);
 }
 
-int	arri_rule_swap(t_arri *arri)
+int	arri_swap(t_arri *arri)
 {
 	int	tmp;
 
@@ -50,7 +50,7 @@ int	arri_rule_swap(t_arri *arri)
 	return (1);
 }
 
-int	arri_rule_rotate(t_arri *arri)
+int	arri_rotate(t_arri *arri)
 {
 	int		tmp;
 	t_uint	i;
@@ -68,7 +68,7 @@ int	arri_rule_rotate(t_arri *arri)
 	return (1);
 }
 
-int	arri_rule_reverse_rotate(t_arri *arri)
+int	arri_rrotate(t_arri *arri)
 {
 	int		tmp;
 	t_uint	i;

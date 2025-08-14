@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorter.h                                           :+:      :+:    :+:   */
+/*   arri_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 13:58:44 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/13 18:00:42 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/11 17:50:37 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/13 17:20:52 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORTER_H
-# define SORTER_H
+#include "arri_internal.h"
 
-#include "types.h"
+int	arri_is_sorted(t_arri *arri)
+{
+	t_uint	i;
 
-int	ops_sort(int *values, int size);
+	if (arri->len == 0)
+		return (0);
+	i = 1;
+	while (i < arri->len)
+	{
+		if (arri->buff[i] < arri->buff[i - 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-#endif
+int	arri_is_empty(t_arri *arri)
+{
+	if (arri->len == 0)
+		return (1);
+	return (0);
+}
