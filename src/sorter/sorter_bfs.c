@@ -6,25 +6,37 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:55:46 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 20:51:22 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/14 23:06:19 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sorter_bfs.h"
 
-static t_state	*sorter_bfs_state_init(int *values, int size, t_hashset *hashset)
+static void	destroy(t_queue *q, t_hashset *h, t_state *s, t_arri *a)
 {
+	if (q)
+		queue_destroy(q, sorter_bfs_state_destroy);
+	if (h)
+		hashset_destroy(h);
+	if (s)
+		sorter_bfs_state_destroy(s);
+	if (a)
+		arri_destroy(a);
+}
+
+static t_queue	*init_queue(int *values, int size, t_hashset *hset)
+{
+	t_queue	*queue;
 	t_state	*state;
 	t_arri	*sorted;
 	t_uint	i;
 
+	queue = queue_create();
 	state = sorter_bfs_state_create(size);
-	if (!state)
-		return (NULL);
 	sorted = arri_create(size);
-	if (!sorted)
+	if (!queue || !state || !sorted || !queue_enqueue(queue, state))
 	{
-		sorter_bfs_state_destroy(state);
+		destroy(queue, NULL, state, sorted);
 		return (NULL);
 	}
 	i = 0;
@@ -35,58 +47,49 @@ static t_state	*sorter_bfs_state_init(int *values, int size, t_hashset *hashset)
 	while (i < (t_uint)size)
 		arri_append(state->a, arri_index_of(sorted, values[i++]));
 	arri_destroy(sorted);
-	arri_print(state->a);
-	hashset_insert(hashset, sorter_bfs_state_serialize(state, size));
-	return (state);
-}
-
-static t_queue	*sorter_bfs_queue_init(int *values, int size, t_hashset *hashset)
-{
-	t_queue	*queue;
-	t_state	*state;
-
-	queue = queue_create();
-	if (!queue)
-	{
-		hashset_destroy(hashset);
-		return (NULL);
-	}
-	state = sorter_bfs_state_init(values, size, hashset);
-	if (!state)
-	{
-		hashset_destroy(hashset);
-		queue_destroy(queue, sorter_bfs_state_destroy);
-		return (NULL);
-	}
-	if (!queue_enqueue(queue, state))
-	{
-		hashset_destroy(hashset);
-		sorter_bfs_state_destroy(state);
-		queue_destroy(queue, sorter_bfs_state_destroy);
-		return (NULL);
-	}
+	hashset_insert(hset, sorter_bfs_state_serialize(state, size));
 	return (queue);
 }
 
-static void	sorter_bfs_neighbors_append(t_queue *queue, t_state *state, t_hashset *hashset, t_uint size)
+static int	check(t_state *state, int rule, t_hashset *hset, t_uint size)
+{
+	t_ulong	key;
+	int		hset_return;
+
+	if (!state)
+		return (-1);
+	if (sorter_bfs_rules_apply_rule(state, rule))
+	{
+		key = sorter_bfs_state_serialize(state, size);
+		hset_return = hashset_insert(hset, key);
+		if (hset_return != 1)
+			sorter_bfs_state_destroy(state);
+		return (hset_return);
+	}
+	return (0);
+}
+
+static int	append(t_queue *q, t_state *state, t_hashset *hset, t_uint size)
 {
 	t_state	*state_copy;
+	int		check_return;
 	t_uint	i;
 
 	i = 0;
 	while (i < 11)
 	{
 		state_copy = sorter_bfs_state_copy(state);
-		if (sorter_bfs_rules_apply_rule(state_copy, i) && hashset_insert(hashset, sorter_bfs_state_serialize(state_copy, size)) == 1)
+		check_return = check(state_copy, i, hset, size);
+		if (check_return == 1)
 		{
-				
 			arri_append(state_copy->rules, i);
-			queue_enqueue(queue, state_copy);
+			queue_enqueue(q, state_copy);
 		}
-		else
-			sorter_bfs_state_destroy(state_copy);
+		else if (check_return == -1)
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
 int	sorter_bfs(int *values, int size)
@@ -96,24 +99,22 @@ int	sorter_bfs(int *values, int size)
 	t_hashset	*hashset;
 
 	hashset = hashset_create();
-	if (!hashset)
+	queue = init_queue(values, size, hashset);
+	if (!hashset || !queue)
+	{
+		destroy(queue, hashset, NULL, NULL);
 		return (0);
-	queue = sorter_bfs_queue_init(values, size, hashset);
-	if (!queue)
-		return (0);
-	printf("ok\n");
+	}
 	while (!queue_is_empty(queue))
 	{
 		state = queue_dequeue(queue);
 		if (arri_is_sorted(state->a) && arri_is_empty(state->b))
 		{
 			sorter_bfs_rules_print(state->rules);
-			hashset_destroy(hashset);
-			sorter_bfs_state_destroy(state);
-			queue_destroy(queue, sorter_bfs_state_destroy);
+			destroy(queue, hashset, state, NULL);
 			return (1);
 		}
-		sorter_bfs_neighbors_append(queue, state, hashset, size);
+		append(queue, state, hashset, size);
 		sorter_bfs_state_destroy(state);
 	}
 	return (0);
