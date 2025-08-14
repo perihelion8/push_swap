@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   hashset_internal.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 07:45:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 17:26:35 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/14 18:56:01 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/14 19:50:37 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#ifndef HASHSET_INTERNAL_H
+# define HASHSET_INTERNAL_H
 
-# include <stdio.h>
+#include "hashset.h"
 
-typedef unsigned int	t_uint;
-typedef unsigned long	t_ulong;
+typedef struct s_hash_entry
+{
+	t_ulong	key;
+	t_uint	occupied;
+}	t_hash_entry;
+
+struct s_hashset
+{
+	t_hash_entry	*table;
+	t_uint			cap;
+};
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 06:14:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 17:08:39 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:33:00 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,31 @@ t_state	*sorter_bfs_state_copy(t_state *state)
 		return (NULL);
 	}
 	return (copy);
+}
+
+t_ulong	sorter_bfs_state_serialize(t_state *state, t_uint cap)
+{
+	t_ulong	key;
+	t_uint	i;
+
+	key = 0;
+	i = 0;
+	while (i < cap)
+	{
+		if (i < arri_len(state->a))
+			key = key * (cap + 1) + arri_get(state->a, i);
+		else
+			key += key * (cap + 1) + cap;
+		i++;
+	}
+	i = 0;
+	while (i < cap)
+	{
+		if (i < arri_len(state->b))
+			key = key * (cap + 1) + arri_get(state->b, i);
+		else
+			key = key * (cap + 1) + cap;
+		i++;
+	}
+	return (key);
 }
