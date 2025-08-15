@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:55:46 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/15 07:26:15 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/15 13:08:07 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ static int	bfs_check_rule(t_state *state, int rule, t_hashset *visited)
 	{
 		key = sorter_bfs_state_serialize(state);
 		is_visited = hashset_insert(visited, key);
-		if (is_visited != 1)
-			sorter_bfs_state_destroy(state);
 		return (is_visited);
 	}
 	return (0);
@@ -85,10 +83,13 @@ static int	bfs_enqueue_states(t_queue *q, t_state *state, t_hashset *visited)
 			arri_append(state_copy->rules, i);
 			queue_enqueue(q, state_copy);
 		}
-		else if (check_return == -1)
+		else
+			sorter_bfs_state_destroy(state_copy);
+		if (check_return == -1)
 			return (0);
 		i++;
 	}
+	sorter_bfs_state_destroy(state);
 	return (1);
 }
 
@@ -115,7 +116,6 @@ int	sorter_bfs(int *values, int size)
 			return (1);
 		}
 		bfs_enqueue_states(queue, state, visited);
-		sorter_bfs_state_destroy(state);
 	}
 	return (0);
 }
