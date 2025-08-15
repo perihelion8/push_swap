@@ -6,19 +6,20 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 06:14:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 20:33:00 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/15 00:58:06 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sorter_bfs.h"
 
-t_state	*sorter_bfs_state_create(int cap)
+t_state	*sorter_bfs_state_create(t_uint cap)
 {
 	t_state	*state;
 
 	state = malloc(sizeof(*state));
 	if (!state)
 		return (NULL);
+	state->cap = cap;
 	state->a = arri_create(cap);
 	state->b = arri_create(cap);
 	state->rules = arri_create(50);
@@ -54,6 +55,7 @@ t_state	*sorter_bfs_state_copy(t_state *state)
 	copy = malloc(sizeof(*copy));
 	if (!state)
 		return (NULL);
+	copy->cap = state->cap;
 	copy->a = arri_copy(state->a);
 	copy->b = arri_copy(state->b);
 	copy->rules = arri_copy(state->rules);
@@ -65,28 +67,28 @@ t_state	*sorter_bfs_state_copy(t_state *state)
 	return (copy);
 }
 
-t_ulong	sorter_bfs_state_serialize(t_state *state, t_uint cap)
+t_ulong	sorter_bfs_state_serialize(t_state *state)
 {
 	t_ulong	key;
 	t_uint	i;
 
 	key = 0;
 	i = 0;
-	while (i < cap)
+	while (i < state->cap)
 	{
 		if (i < arri_len(state->a))
-			key = key * (cap + 1) + arri_get(state->a, i);
+			key = key * (state->cap + 1) + arri_get(state->a, i);
 		else
-			key += key * (cap + 1) + cap;
+			key += key * (state->cap + 1) + state->cap;
 		i++;
 	}
 	i = 0;
-	while (i < cap)
+	while (i < state->cap)
 	{
 		if (i < arri_len(state->b))
-			key = key * (cap + 1) + arri_get(state->b, i);
+			key = key * (state->cap + 1) + arri_get(state->b, i);
 		else
-			key = key * (cap + 1) + cap;
+			key = key * (state->cap + 1) + state->cap;
 		i++;
 	}
 	return (key);
