@@ -6,11 +6,11 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 06:14:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/15 00:58:06 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/15 22:18:09 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sorter_bfs.h"
+#include "sorter_internal.h"
 
 t_state	*sorter_bfs_state_create(t_uint cap)
 {
@@ -35,17 +35,16 @@ void	sorter_bfs_state_destroy(void *s)
 {
 	t_state	*state;	
 
-	if (s)
-	{
-		state = s;
-		if (state->a)
-			arri_destroy(state->a);
-		if (state->b)
-			arri_destroy(state->b);
-		if (state->rules)
-			arri_destroy(state->rules);
-		free(state);
-	}
+	if (!s)
+		return ;
+	state = s;
+	if (state->a)
+		arri_destroy(state->a);
+	if (state->b)
+		arri_destroy(state->b);
+	if (state->rules)
+		arri_destroy(state->rules);
+	free(state);
 }
 
 t_state	*sorter_bfs_state_copy(t_state *state)

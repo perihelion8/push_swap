@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 23:52:01 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/15 00:46:26 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/16 10:13:14 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define SORTER_BFS_H
 
 # include <stdlib.h>
-# include "arri/arri.h"
-# include "queue/queue.h"
-# include "hashset/hashset.h"
-# include "types.h"
 
 typedef struct s_state
 {
@@ -49,6 +45,5 @@ t_ulong	sorter_bfs_state_serialize(t_state *state);
 void	sorter_bfs_state_destroy(void *s);
 int		sorter_bfs_rules_apply_rule(t_state *state, int rule);
 void	sorter_bfs_rules_print(t_arri *rules);
-void	sorter_putstrln(const char *str);
 
 #endif

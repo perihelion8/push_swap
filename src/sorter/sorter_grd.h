@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorter_internal.h                                  :+:      :+:    :+:   */
+/*   sorter_grd.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 14:06:20 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/16 10:14:27 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/16 10:18:28 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/16 10:19:36 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORTER_INTERNAL_H
-# define SORTER_INTERNAL_H
+#ifndef SORTER_GRD_H
+# define SORTER_GRD_H
 
-# include "types.h"
-# include "arri/arri.h"
-# include "hashset/hashset.h"
-# include "queue/queue.h"
-# include "sorter.h"
-# include "sorter_bfs.h"
-# include "sorter_grd.h"
-
-void	sorter_putstrln(const char *str);
+t_arri	*sorter_grd(int	*values, int size);
 
 #endif

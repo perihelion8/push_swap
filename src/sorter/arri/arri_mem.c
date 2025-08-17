@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:32:52 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 16:18:19 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/16 10:28:09 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ t_arri	*arri_create(t_uint cap)
 
 void	arri_destroy(t_arri *arri)
 {
-	if (arri)
-	{
-		if (arri->buff)
-			free(arri->buff);
-		free(arri);
-	}
+	if (!arri)
+		return ;
+	if (arri->buff)
+		free(arri->buff);
+	free(arri);
 }
 
 t_arri	*arri_copy(t_arri *src)

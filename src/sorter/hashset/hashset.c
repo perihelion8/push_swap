@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 19:15:27 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/15 13:13:04 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/15 13:17:13 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_hashset	*hashset_create(void)
 	hashset = malloc(sizeof(*hashset));
 	if (!hashset)
 		return (NULL);
-	hashset->cap = 600013;
+	hashset->cap = 60013;
 	hashset->table = malloc(hashset->cap * sizeof(t_hash_entry));
 	if (!hashset->table)
 	{
@@ -39,12 +39,11 @@ t_hashset	*hashset_create(void)
 
 void	hashset_destroy(t_hashset *hashset)
 {
-	if (hashset)
-	{
-		if (hashset->table)
-			free(hashset->table);
-		free(hashset);
-	}
+	if (!hashset)
+		return ;
+	if (hashset->table)
+		free(hashset->table);
+	free(hashset);
 }
 
 int	hashset_insert(t_hashset *hashset, t_ulong key)

@@ -6,11 +6,11 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:55:46 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/15 13:08:07 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/15 22:17:08 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sorter_bfs.h"
+#include "sorter_internal.h"
 
 static void	bfs_destroy(t_queue *q, t_hashset *h, t_state *s, t_arri *a)
 {
@@ -83,7 +83,7 @@ static int	bfs_enqueue_states(t_queue *q, t_state *state, t_hashset *visited)
 			arri_append(state_copy->rules, i);
 			queue_enqueue(q, state_copy);
 		}
-		else
+		else if (state_copy)
 			sorter_bfs_state_destroy(state_copy);
 		if (check_return == -1)
 			return (0);

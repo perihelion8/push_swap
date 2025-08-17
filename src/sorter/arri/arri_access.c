@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:25:15 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 16:26:50 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/16 10:16:25 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,14 @@ void	arri_print(t_arri *arri)
 		i++;
 	}
 	printf("%d.\n", arri->buff[i]);
+}
+
+t_arri	*arri_lcs(t_arri *arri)
+{
+	t_arri	*lcs;
+	t_uint	i;
+	
+
+
+	return (lcs);
 }

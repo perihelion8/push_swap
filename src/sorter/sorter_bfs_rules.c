@@ -6,11 +6,11 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:55:56 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/13 17:31:56 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/15 22:17:38 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sorter_bfs.h"
+#include "sorter_internal.h"
 
 static void	print_rule(int rule)
 {
