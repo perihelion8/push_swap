@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lis_rule_p.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/24 02:37:36 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/25 22:21:47 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#include "lis_internal.h"
 
-void	puterr(void)
+void	pa(t_list *a, t_list *b)
 {
-	write(2, "Error\n", 6);
+	if (list_push(a, b))
+		putstrln("pa");
 }
 
-int	main(int argc, char *argv[])
+void	pb(t_list *a, t_list *b)
 {
-	t_arri	*arri;
-
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
+	if (list_push(b, a))
+		putstrln("pb");
 }

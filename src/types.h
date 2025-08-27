@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/12 07:45:19 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/14 17:26:35 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#ifndef TYPES_H
+# define TYPES_H
 
-void	puterr(void)
-{
-	write(2, "Error\n", 6);
-}
+# include <stdio.h>
 
-int	main(int argc, char *argv[])
-{
-	t_arri	*arri;
+typedef unsigned int	t_uint;
+typedef unsigned long	t_ulong;
 
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
-}
+#endif

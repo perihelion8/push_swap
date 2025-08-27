@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list_internal.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/07/25 16:23:46 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/26 00:33:15 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#ifndef LIST_INTERNAL_H
+# define LIST_INTERNAL_H
 
-void	puterr(void)
+# include <stddef.h>
+# include "types.h"
+# include "list.h"
+
+typedef struct s_list_node
 {
-	write(2, "Error\n", 6);
-}
+	int					key;
+	struct s_list_node	*prev;
+	struct s_list_node	*next;
+}	t_list_node;
 
-int	main(int argc, char *argv[])
+struct s_list
 {
-	t_arri	*arri;
+	t_list_node	*tail;
+	t_uint		len;
+};
 
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
-}
+t_list_node	*list_node_create(int key);
+void		list_node_destroy(t_list_node *node);
+t_list_node	*list_pop_front(t_list *lst);
+
+#endif

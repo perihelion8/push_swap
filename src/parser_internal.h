@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser_internal.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/07/26 15:03:02 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/27 23:13:23 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#ifndef INTERNAL_H
+# define INTERNAL_H
 
-void	puterr(void)
-{
-	write(2, "Error\n", 6);
-}
+# include <stddef.h>
+# include "parser.h"
 
-int	main(int argc, char *argv[])
-{
-	t_arri	*arri;
+int		parser_validate_input(const char *str);
+int		parser_strcmp(const char *s1, const char *s2);
+int		parser_atoi(const char *str);
+int		*parser_arri_alloc(int size);
+void	parser_arri_free(int *arri);
 
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
-}
+#endif

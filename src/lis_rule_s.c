@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lis_rule_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/24 02:55:20 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/25 23:26:57 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#include "lis_internal.h"
 
-void	puterr(void)
+void	sa(t_list *a)
 {
-	write(2, "Error\n", 6);
+	if (list_swap(a))
+		putstrln("sa");
 }
 
-int	main(int argc, char *argv[])
+void	sb(t_list *b)
 {
-	t_arri	*arri;
+	if (list_swap(b))
+		putstrln("sb");
+}
 
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
+void	ss(t_list *a, t_list *b)
+{
+	int	sa;
+	int	sb;
+
+	sa = list_swap(a);
+	sb = list_swap(b);
+	if (sa && sb)
+		putstrln("ss");
+	else if (sa)
+		putstrln("sa");
+	else if (sb)
+		putstrln("sb");
 }

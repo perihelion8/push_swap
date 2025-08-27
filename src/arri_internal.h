@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   arri_internal.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/11 14:29:27 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/28 00:43:05 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#ifndef ARRI_INTERNAL_H
+# define ARRI_INTERNAL_H
 
-void	puterr(void)
+# include "stdio.h"
+# include "arri.h"
+
+struct s_arri
 {
-	write(2, "Error\n", 6);
-}
+	int		*buff;
+	t_uint	cap;
+	t_uint	len;
+};
 
-int	main(int argc, char *argv[])
-{
-	t_arri	*arri;
-
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
-}
+#endif

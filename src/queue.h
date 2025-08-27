@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   queue.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/13 15:29:35 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/21 14:48:28 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#ifndef QUEUE_H
+# define QUEUE_H
 
-void	puterr(void)
-{
-	write(2, "Error\n", 6);
-}
+typedef struct s_queue	t_queue;
 
-int	main(int argc, char *argv[])
-{
-	t_arri	*arri;
+t_queue	*queue_create(void);
+void	*queue_dequeue(t_queue *q);
+void	queue_destroy(t_queue *q, void (*data_destroy)(void *));
+int		queue_enqueue(t_queue *q, void *data);
+int		queue_is_empty(t_queue *q);
 
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
-}
+#endif

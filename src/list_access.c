@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list_access.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/24 03:02:16 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/26 00:21:37 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#include "list_internal.h"
 
-void	puterr(void)
+t_uint	list_len(t_list *lst)
 {
-	write(2, "Error\n", 6);
+	return (lst->len);
 }
 
-int	main(int argc, char *argv[])
+int	list_get_nth(t_list *lst, t_uint index)
 {
-	t_arri	*arri;
+	t_list_node	*curr;
+	t_uint		i;
 
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
+	curr = lst->tail->next;
+	i = 0;
+	while (i < index)
 	{
-		puterr();
-		return (1);
+		curr = curr->next;
+		i++;
 	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
+	return (curr->key);
 }

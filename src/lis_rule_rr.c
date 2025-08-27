@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lis_rule_rr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/24 02:49:54 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/25 23:28:50 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "arri.h"
-#include "parser.h"
-#include "pssort.h"
+#include "lis_internal.h"
 
-void	puterr(void)
+void	rra(t_list *a)
 {
-	write(2, "Error\n", 6);
+	if (list_rrotate(a))
+		putstrln("rra");
 }
 
-int	main(int argc, char *argv[])
+void	rrb(t_list *b)
 {
-	t_arri	*arri;
+	if (list_rrotate(b))
+		putstrln("rrb");
+}
 
-	if (argc < 2)
-		return (0);
-	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
-	{
-		puterr();
-		return (1);
-	}
-	return (0);
+void	rrr(t_list *a, t_list *b)
+{
+	int	rra;
+	int	rrb;
+
+	rra = list_rrotate(a);
+	rrb = list_rrotate(b);
+	if (rra && rrb)
+		putstrln("rrr");
+	else if (rra)
+		putstrln("rra");
+	else if (rrb)
+		putstrln("rrb");
 }
