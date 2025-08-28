@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 15:33:50 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:42:38 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 02:13:57 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 #include "parser_internal.h"
 
 static t_arri	*parser_ranked_arri(int *values, int size)
@@ -39,7 +39,7 @@ static t_arri	*parser_ranked_arri(int *values, int size)
 	return (ranked);
 }
 
-int	parser_assign_unique_value(int *arri, char *input, int index)
+static int	parser_assign_unique_value(int *arri, char *input, int index)
 {
 	int	i;
 	int	value;
@@ -64,7 +64,7 @@ t_arri	*parser_args_to_arri(int argc, char **argv)
 	int		*values;
 	int		i;
 
-	values = parser_arri_alloc(argc - 1);
+	values = malloc(sizeof(*values) * (argc - 1));
 	if (!values)
 		return (NULL);
 	i = 0;
@@ -72,13 +72,13 @@ t_arri	*parser_args_to_arri(int argc, char **argv)
 	{
 		if (parser_assign_unique_value(values, argv[i + 1], i) == 0)
 		{
-			parser_arri_free(values);
+			free(values);
 			return (NULL);
 		}
 		i++;
 	}
 	arri = parser_ranked_arri(values, argc - 1);	
-	parser_arri_free(values);
+	free(values);
 	if (!arri)
 		return (NULL);
 	return (arri);

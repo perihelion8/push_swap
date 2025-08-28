@@ -6,19 +6,23 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:15:38 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 01:47:49 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "put.h"
 #include "arri.h"
 #include "parser.h"
-#include "pssort.h"
+#include "bfs.h"
+#include "lis.h"
 
-void	puterr(void)
+int	ps_sort(t_arri *arri)
 {
-	write(2, "Error\n", 6);
+	if (arri_len(arri) <= 6)
+		return (sort_bfs(arri));
+	else
+		return (sort_lis(arri));
+	return (1);
 }
 
 int	main(int argc, char *argv[])

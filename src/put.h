@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pssort.h                                           :+:      :+:    :+:   */
+/*   putstrln.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 13:58:44 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/27 23:45:52 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/24 11:46:21 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/28 01:47:03 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PSSORT_H
-# define PSSORT_H
+#ifndef PUTSTRLN_H
+# define PUTSTRLN_H
 
-int	ps_sort(t_arri *arri);
+void	putstrln(const char *str);
+void	puterr(void);
 
 #endif

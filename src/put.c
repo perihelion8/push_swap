@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   put.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 07:45:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/14 17:26:35 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/24 11:47:36 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/28 02:14:30 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#include <unistd.h>
+#include "put.h"
 
-# include <stdio.h>
+void	putstrln(const char *str)
+{
+	unsigned int	i;
 
-typedef unsigned int	t_uint;
-typedef unsigned long	t_ulong;
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	write(1, str, i);
+	write(1, "\n", 1);
+}
 
-#endif
+void	puterr(void)
+{
+	write(2, "Error\n", 6);
+}

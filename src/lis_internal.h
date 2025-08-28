@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:55:21 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/26 00:18:53 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 01:50:51 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "arri.h"
 # include "list.h"
-# include "putstrln.h"
 
 void	pa(t_list *a, t_list *b);
 void	pb(t_list *b, t_list *a);

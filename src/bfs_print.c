@@ -6,11 +6,11 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:55:56 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/24 11:51:13 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 01:50:13 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "putstrln.h"
+#include "put.h"
 #include "bfs_internal.h"
 
 void	bfs_print_rule(int rule)

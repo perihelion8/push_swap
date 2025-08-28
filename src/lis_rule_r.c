@@ -6,10 +6,11 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 02:44:36 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/24 02:54:39 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 01:51:46 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "put.h"
 #include "lis_internal.h"
 
 void	ra(t_list *a)

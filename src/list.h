@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:53:20 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/24 11:40:52 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 11:04:03 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int		list_is_sorted(t_list *lst);
 int		list_is_empty(t_list *lst);
 t_uint	list_len(t_list *lst);
 int		list_get_nth(t_list *lst, t_uint index);
+int		list_get_head(t_list *lst);
+int		list_get_tail(t_list *lst);
 int		list_push(t_list *dst, t_list *src);
 int		list_swap(t_list *lst);
 int		list_rotate(t_list *lst);

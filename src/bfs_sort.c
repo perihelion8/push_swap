@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:55:46 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/27 23:40:07 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 02:09:55 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,25 @@ static t_queue	*bfs_initial_queue(t_arri *arri, t_hashset *visited)
 {
 	t_queue	*queue;
 	t_state	*state;
+	t_uint	len;
+	t_uint	i;
 
+	len = arri_len(arri);
 	queue = queue_create();
-	state = bfs_state_create(arri_len(arri), 20);
-	if (!queue || !state || !queue_enqueue(queue, state))
+	state = bfs_state_create(len);
+	if (!visited || !queue || !state || !queue_enqueue(queue, state))
 	{
-		bfs_destroy(queue, NULL, state);
+		bfs_destroy(queue, visited, state);
 		return (NULL);
 	}
-	state->a = arri;
+	i = 0;
+	while (i < len)
+	{
+		arri_append(state->a, arri_get(arri, i));
+		i++;
+	}
 	hashset_insert(visited, state, bfs_state_key);
+	arri_destroy(arri);
 	return (queue);
 }
 

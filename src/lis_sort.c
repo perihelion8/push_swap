@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 09:55:55 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 01:12:32 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 11:06:25 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	lis_init_pushtob(t_list *a, t_list *b, t_arri *keep)
 	i = 0;
 	while (i< len)
 	{
-		if (arri_index_of(keep, list_get_nth(a, 0)) != -1)
+		if (arri_index_of(keep, list_get_head(a)) != -1)
 			ra(a);
 		else if (list_get_nth(a, 0) > pivot)
 			pb(a, b);
@@ -99,24 +99,6 @@ static t_uint	lis_min_cost_index(t_list *a, t_list *b)
 	return (minindex);
 }
 
-
-void	list_print(t_list *lst)
-{
-	t_uint	len;
-	t_uint	i;
-
-	printf("-----------------\n");
-	len = list_len(lst);
-	i = 0;
-	while (i < len)
-	{
-		printf("%d\n", list_get_nth(lst, i));
-		i++;
-	}
-	printf("-----------------\n");
-
-}
-
 int	sort_lis(t_arri *arri)
 {
 	t_list	*a;
@@ -137,14 +119,11 @@ int	sort_lis(t_arri *arri)
 		cost_a = lis_cost_a(a, list_get_nth(b, mincost_index));
 		lis_rotates(a, b, cost_a, cost_b);
 		pa(a, b);
-		if (list_get_nth(a, 0) > list_get_nth(a, 1))
+		if (list_get_head(a) > list_get_nth(a, 1))
 			sa(a);
 	}
-	while (list_get_nth(a, 0) > list_get_nth(a, list_len(a) - 1))
+	while (list_get_head(a) > list_get_tail(a))
 		ra(a);
-	//list_print(a);
-	//printf("***\n");
-	//list_print(b);
 	lis_destroy(a, b);
 	return (1);
 }

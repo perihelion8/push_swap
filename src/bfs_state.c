@@ -6,14 +6,14 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 06:14:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/21 15:32:25 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 02:04:41 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "bfs_internal.h"
 
-t_state	*bfs_state_create(t_uint cap, t_uint rules_cap)
+t_state	*bfs_state_create(t_uint cap)
 {
 	t_state	*state;
 
@@ -23,7 +23,7 @@ t_state	*bfs_state_create(t_uint cap, t_uint rules_cap)
 	state->cap = cap;
 	state->a = arri_with_cap(cap);
 	state->b = arri_with_cap(cap);
-	state->rules = arri_with_cap(rules_cap);
+	state->rules = arri_with_cap(20);
 	if (!state->a || !state->b || !state->rules)
 	{
 		bfs_state_destroy(state);

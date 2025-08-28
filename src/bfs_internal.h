@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:41:57 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/24 00:04:05 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 02:05:24 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_hashset
 	t_uint	cap;
 }	t_hashset;
 
-t_state		*bfs_state_create(t_uint cap, t_uint rules_cap);
+t_state		*bfs_state_create(t_uint cap);
 t_state		*bfs_state_copy(t_state *state);
 void		bfs_state_destroy(void *s);
 int			bfs_state_apply_rule(t_state *state, int rule);

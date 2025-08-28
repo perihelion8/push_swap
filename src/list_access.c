@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 03:02:16 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/26 00:21:37 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/28 11:03:20 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,14 @@ int	list_get_nth(t_list *lst, t_uint index)
 		i++;
 	}
 	return (curr->key);
+}
+
+int	list_get_head(t_list *lst)
+{
+	return (lst->tail->next->key);
+}
+
+int	list_get_tail(t_list *lst)
+{
+	return (lst->tail->key);
 }
