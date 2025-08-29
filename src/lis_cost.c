@@ -6,10 +6,18 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 21:32:47 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/26 15:03:38 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 12:15:42 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "lis_internal.h"
+
+static int	abs(int n)
+{
+	if (n < 0)
+		return (-1 * n);
+	return (n);
+}
 
 static int	lis_cost_from_middle(t_list *lst, t_uint index)
 {
@@ -22,69 +30,55 @@ static int	lis_cost_from_middle(t_list *lst, t_uint index)
 		return (-1 * (list_len(lst) - index));
 }
 
-static int	lis_cost_superior_index(t_list *a, int key)
+static int	lis_cost_a(t_list *a, int key)
 {
-	int		key_i;
-	int		inferior;
-	t_uint	inferior_index;
+	t_uint	target_index;
+
+	target_index = list_bound_index(a, key);
+	return (lis_cost_from_middle(a, target_index));
+}
+
+static int	lis_cost_total(int cost_a, int cost_b)
+{
+	int	min;
+
+	if ((cost_a > 0 && cost_b > 0) || (cost_a < 0 && cost_b < 0))
+	{
+		cost_a = abs(cost_a);
+		cost_b = abs(cost_b);
+		min = cost_a;
+		if (cost_b < cost_a)
+			min = cost_b;
+		return (min + abs(cost_a - cost_b));
+	}
+	return (abs(cost_a) + abs(cost_b));
+}
+
+t_cost	lis_cost_min(t_list *a, t_list *b)
+{
+	t_cost	mincost;
+	int		cost[3];
+	int		min;
 	t_uint	len;
 	t_uint	i;
 
-	inferior = 100000;
-	inferior_index = -1;
-	len = list_len(a);
+	min = 2000;
+	len = list_len(b);
 	i = 0;
 	while (i < len)
 	{
-		key_i = list_get_nth(a, i);
-		if (key_i > key && key_i < inferior)
+		cost[0] = lis_cost_a(a, list_get_nth(b, i));
+		cost[1] = lis_cost_from_middle(b, i);
+		cost[2] = lis_cost_total(cost[0], cost[1]);
+		if (cost[2] < min)
 		{
-			inferior = key_i;
-			inferior_index = i;
+			min = cost[2];
+			mincost.a = cost[0];
+			mincost.b = cost[1];
 		}
-		i++;	
+		if (cost[2] == 0)
+			break ;
+		i++;
 	}
-	return (inferior_index);
-}
-
-static int	lis_cost_inferior_index(t_list *a, int key)
-{
-	int		key_i;
-	int		inferior;
-	t_uint	inferior_index;
-	t_uint	len;
-	t_uint	i;
-
-	inferior = -100000;
-	inferior_index = -1;
-	len = list_len(a);
-	i = 0;
-	while (i < len)
-	{
-		key_i = list_get_nth(a, i);
-		if (key_i < key && key_i > inferior)
-		{
-			inferior = key_i;
-			inferior_index = i;
-		}
-		i++;	
-	}
-	return (inferior_index);
-}
-
-int	lis_cost_a(t_list *a, int key)
-{
-	int	key_cost;
-	int	target_index;
-
-	target_index = lis_cost_superior_index(a, key);
-	if (target_index == -1)
-		target_index = lis_cost_inferior_index(a, key);
-	key_cost = lis_cost_from_middle(a, target_index);
-	return (key_cost);
-}
-
-int	lis_cost_b(t_list *b, t_uint index)
-{
-	return (lis_cost_from_middle(b, index));
+	return (mincost);
 }

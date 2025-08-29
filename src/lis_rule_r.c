@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 02:44:36 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 01:51:46 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 11:30:52 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	rb(t_list *b)
 		putstrln("rb");
 }
 
-void	rr(t_list* a, t_list *b)
+void	rr(t_list *a, t_list *b)
 {
 	int	ra;
 	int	rb;

@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:25:15 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/26 00:43:11 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:35:05 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,36 +48,23 @@ void	arri_iterate(t_arri *arri, void (*f)(int))
 	}
 }
 
-int	arri_binary_search(t_arri *sorted_arri, int value)
+int	arri_binary_search(t_arri *sorted, int value)
 {
-	t_uint	left;
-	t_uint	right;
-	t_uint	mid;
+	int	left;
+	int	right;
+	int	mid;
 
 	left = 0;
-	right = sorted_arri->len - 1;
+	right = sorted->len - 1;
 	while (left <= right)
 	{
 		mid = left + (right - left) / 2;
-		if (arri_get(sorted_arri, mid) == value)
-			return (1);
-		if (arri_get(sorted_arri, mid) < value)
+		if (sorted->buff[mid] == value)
+			return (mid);
+		if (value > sorted->buff[mid])
 			left = mid + 1;
 		else
 			right = mid - 1;
 	}
-	return (0);
-}
-
-void	arri_print(t_arri *arri)
-{
-	t_uint i;
-
-	i = 0;
-	while (i < arri->len)
-	{
-		printf("%d ", arri->buff[i]);
-		i++;
-	}
-	printf("\n");
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 08:46:39 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/24 00:02:52 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 12:09:20 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,11 @@ void	hashset_destroy(t_hashset *hashset)
 	free(hashset);
 }
 
-int	hashset_insert(t_hashset *hashset, void *data, t_ulong (*gen)(void *))
+int	hashset_insert(t_hashset *hashset, t_ulong key)
 {
-	t_ulong	key;
 	t_uint	index;
 	t_uint	start_index;
 
-	key = gen(data);
 	index = key % hashset->cap;
 	start_index = index;
 	while (hashset->table[index] != 0)

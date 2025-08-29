@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:55:21 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 01:50:51 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 11:12:53 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include "arri.h"
 # include "list.h"
+
+typedef struct s_cost
+{
+	int	a;
+	int	b;
+}	t_cost;
 
 void	pa(t_list *a, t_list *b);
 void	pb(t_list *b, t_list *a);
@@ -28,11 +34,7 @@ void	rra(t_list *a);
 void	rrb(t_list *b);
 void	rrr(t_list *a, t_list *b);
 
-void	lis_rotates(t_list *a, t_list *b, int cost_a, int cost_b);
-int		lis_cost_b(t_list *b, t_uint index);
-int		lis_cost_a(t_list *a, int key);
-
-void	list_print(t_list *lst);
-
+void	lis_rotates(t_list *a, t_list *b, t_cost cost);
+t_cost	lis_cost_min(t_list *a, t_list *b);
 
 #endif

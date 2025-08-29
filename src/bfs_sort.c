@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:55:46 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 02:09:55 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 16:54:10 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,21 @@ static t_queue	*bfs_initial_queue(t_arri *arri, t_hashset *visited)
 		arri_append(state->a, arri_get(arri, i));
 		i++;
 	}
-	hashset_insert(visited, state, bfs_state_key);
 	arri_destroy(arri);
+	hashset_insert(visited, bfs_state_key(state));
 	return (queue);
+}
+
+static int	bfs_state_is_enquable(t_state *state, int rule, t_hashset *visited)
+{
+	t_ulong	key;
+
+	if (!bfs_state_apply_rule(state, rule))
+		return (0);
+	key = bfs_state_key(state);
+	if (!hashset_insert(visited, key))
+		return (0);
+	return (1);
 }
 
 static int	bfs_node_expansion(t_state *state, t_queue *q, t_hashset *visited)
@@ -59,7 +71,7 @@ static int	bfs_node_expansion(t_state *state, t_queue *q, t_hashset *visited)
 		copy = bfs_state_copy(state);
 		if (!copy)
 			return (0);
-		if (bfs_state_apply_rule(copy, i) && hashset_insert(visited, copy, bfs_state_key))
+		if (bfs_state_is_enquable(copy, i, visited))
 		{
 			arri_append(copy->rules, i);
 			if (!queue_enqueue(q, copy))

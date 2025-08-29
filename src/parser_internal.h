@@ -6,12 +6,12 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 15:03:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 02:12:34 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 11:13:28 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERNAL_H
-# define INTERNAL_H
+#ifndef PARSER_INTERNAL_H
+# define PARSER_INTERNAL_H
 
 # include "parser.h"
 

@@ -6,14 +6,14 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:41:21 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/27 23:54:45 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 11:10:47 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BFS_H
 # define BFS_H
 
-#include "arri.h"
+# include "arri.h"
 
 int	sort_bfs(t_arri *arri);
 

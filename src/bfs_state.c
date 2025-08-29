@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 06:14:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 02:04:41 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 12:33:40 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,11 @@ int	bfs_state_apply_rule(t_state *state, int rule)
 	return (0);
 }
 
-t_ulong	bfs_state_key(void	*s)
+t_ulong	bfs_state_key(t_state *state)
 {
-	t_state	*state;
 	t_ulong	key;
 	t_uint	i;
 
-	state = s;
 	key = 0;
 	i = 0;
 	while (i < state->cap)

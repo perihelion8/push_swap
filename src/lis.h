@@ -6,16 +6,15 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:54:38 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:21:44 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 11:34:45 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIS_H
 # define LIS_H
 
-#include "arri.h"
+# include "arri.h"
 
 int	sort_lis(t_arri *arri);
 
-
-# endif
+#endif

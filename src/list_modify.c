@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 11:33:21 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/26 00:33:03 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 12:06:49 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	list_append(t_list *lst, int key)
 	return (1);
 }
 
-t_list_node *list_pop_front(t_list *lst)
+t_list_node	*list_pop_front(t_list *lst)
 {
 	t_list_node	*old_head;
 	t_list_node	*new_head;

@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 15:33:50 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 02:13:57 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:59:07 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_arri	*parser_ranked_arri(int *values, int size)
 	i = 0;
 	while (i < size)
 	{
-		arri_append(ranked, arri_index_of(sorted, values[i]));
+		arri_append(ranked, arri_binary_search(sorted, values[i]));
 		i++;
 	}
 	arri_destroy(sorted);
@@ -77,7 +77,7 @@ t_arri	*parser_args_to_arri(int argc, char **argv)
 		}
 		i++;
 	}
-	arri = parser_ranked_arri(values, argc - 1);	
+	arri = parser_ranked_arri(values, argc - 1);
 	free(values);
 	if (!arri)
 		return (NULL);

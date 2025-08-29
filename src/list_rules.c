@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:47:25 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/26 00:35:05 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 12:05:54 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	list_push(t_list *dst, t_list *src)
 
 	if (list_len(src) == 0)
 		return (0);
-	
 	tmp = list_pop_front(src);
 	list_prepend(dst, tmp->key);
 	list_node_destroy(tmp);
