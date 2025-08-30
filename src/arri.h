@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:31:15 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 00:43:20 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/30 16:51:00 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ int		arri_push(t_arri *dst, t_arri *src);
 int		arri_swap(t_arri *arri);
 int		arri_rotate(t_arri *arri);
 int		arri_rrotate(t_arri *arri);
-
-void	arri_print(t_arri *arri);
 
 #endif
