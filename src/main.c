@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 06:14:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/28 01:47:49 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/29 18:24:13 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	ps_sort(t_arri *arri)
 {
-	if (arri_len(arri) <= 6)
+	if (arri_len(arri) < 7)
 		return (sort_bfs(arri));
 	else
 		return (sort_lis(arri));
@@ -32,12 +32,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	arri = parser_args_to_arri(argc, argv);
-	if (arri == NULL)
-	{
-		puterr();
-		return (1);
-	}
-	if (ps_sort(arri) == 0)
+	if (!arri || !ps_sort(arri))
 	{
 		puterr();
 		return (1);

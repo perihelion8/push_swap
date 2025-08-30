@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bfs_hashset.c                                      :+:      :+:    :+:   */
+/*   hashset.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/19 08:46:39 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/29 12:09:20 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/08/30 04:12:34 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/30 16:08:43 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "bfs_internal.h"
+#include "hashset.h"
+
+static t_ulong	hash_ulong(t_ulong key)
+{
+	return (key * 2654435769UL);
+}
 
 t_hashset	*hashset_create(void)
 {
@@ -34,6 +39,7 @@ t_hashset	*hashset_create(void)
 		hashset->table[i] = 0;
 		i++;
 	}
+	hashset->zero_exists = 0;
 	return (hashset);
 }
 
@@ -51,7 +57,14 @@ int	hashset_insert(t_hashset *hashset, t_ulong key)
 	t_uint	index;
 	t_uint	start_index;
 
-	index = key % hashset->cap;
+	if (key == 0)
+	{
+		if (hashset->zero_exists)
+			return (0);
+		hashset->zero_exists = 1;
+		return (1);
+	}
+	index = hash_ulong(key) % hashset->cap;
 	start_index = index;
 	while (hashset->table[index] != 0)
 	{

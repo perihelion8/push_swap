@@ -6,7 +6,7 @@
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 23:47:58 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/23 23:51:00 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/08/30 16:44:19 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ static int	parser_validate_input_inrange(const char *str)
 
 int	parser_validate_input(const char *str)
 {
-	if (parser_validate_input_isdigit(str) == 0)
+	if (!parser_validate_input_isdigit(str))
 		return (0);
-	if (parser_validate_input_inrange(str) == 0)
+	if (!parser_validate_input_inrange(str))
 		return (0);
 	return (1);
 }
