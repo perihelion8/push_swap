@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_checks.c                                      :+:      :+:    :+:   */
+/*   list_internal.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 01:14:29 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:37:06 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/07/25 16:23:46 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/31 08:53:01 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_internal.h"
+#ifndef LIST_INTERNAL_H
+# define LIST_INTERNAL_H
 
-int	list_is_sorted(t_list *lst)
+# include "types.h"
+# include "list.h"
+
+typedef struct s_list_node
 {
-	t_list_node	*curr;
-	t_uint		i;
+	int					key;
+	struct s_list_node	*prev;
+	struct s_list_node	*next;
+}	t_list_node;
 
-	curr = lst->tail->next;
-	i = 1;
-	while (i < lst->len)
-	{
-		if (curr->key > curr->next->key)
-			return (0);
-		curr = curr->next;
-		i++;
-	}
-	return (1);
-}
-
-int	list_is_empty(t_list *lst)
+struct s_list
 {
-	if (lst->tail)
-		return (0);
-	return (1);
-}
+	t_list_node	*tail;
+	t_uint		len;
+};
+
+void		list_node_destroy(t_list_node *node);
+t_list_node	*list_node_create(int key);
+t_list_node	*list_pop_front(t_list *lst);
+
+#endif

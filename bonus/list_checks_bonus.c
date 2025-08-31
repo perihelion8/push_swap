@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pssort_internal.h                                  :+:      :+:    :+:   */
+/*   list_checks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 14:06:20 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/26 00:12:48 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/07/28 01:14:29 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/31 08:37:33 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PSSORT_INTERNAL_H
-# define PSSORT_INTERNAL_H
+#include "list_internal.h"
 
-# include "types.h"
-# include "bfs.h"
-# include "lis.h"
+int	list_is_sorted(t_list *lst)
+{
+	t_list_node	*curr;
+	t_uint		i;
 
-#endif
+	curr = lst->tail->next;
+	i = 1;
+	while (i < lst->len)
+	{
+		if (curr->key > curr->next->key)
+			return (0);
+		curr = curr->next;
+		i++;
+	}
+	return (1);
+}
+
+int	list_is_empty(t_list *lst)
+{
+	if (lst->tail)
+		return (0);
+	return (1);
+}

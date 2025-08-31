@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_checks.c                                      :+:      :+:    :+:   */
+/*   parser_internal.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 01:14:29 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:37:06 by abazzoun         ###   ########.fr       */
+/*   Created: 2025/07/26 15:03:02 by abazzoun          #+#    #+#             */
+/*   Updated: 2025/08/31 09:09:37 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_internal.h"
+#ifndef PARSER_INTERNAL_H
+# define PARSER_INTERNAL_H
 
-int	list_is_sorted(t_list *lst)
-{
-	t_list_node	*curr;
-	t_uint		i;
+# include "parser.h"
 
-	curr = lst->tail->next;
-	i = 1;
-	while (i < lst->len)
-	{
-		if (curr->key > curr->next->key)
-			return (0);
-		curr = curr->next;
-		i++;
-	}
-	return (1);
-}
+int		parser_validate_input(const char *str);
+int		parser_strcmp(const char *s1, const char *s2);
+int		parser_atoi(const char *str);
 
-int	list_is_empty(t_list *lst)
-{
-	if (lst->tail)
-		return (0);
-	return (1);
-}
+#endif
