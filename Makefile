@@ -1,36 +1,35 @@
-# Compiler and flags
-CC      := gcc
-CFLAGS  := -Wall -Werror -Wextra -Iinclude -Isrc
-# Add any extra include paths
-CFLAGS  += -Isrc/sorter/arri -Isrc/sorter/list -Isrc/parser
+.PHONY: all clean fclean re
 
-# Name of the final executable
-TARGET  := push_swap
+NAME	:=	push_swap
 
-# Find all source files (.c)
-SRC     := $(shell find src -name '*.c')
-# Convert src/*.c → build/*.o
-OBJ     := $(SRC:src/%.c=build/%.o)
+CC		:=	cc
+CFLAGS	:=	-Wall -Wextra -Werror
 
-# Default target
-all: $(TARGET)
+RM		:=	rm -rf
 
-# Link step
-$(TARGET): $(OBJ)
-	$(CC) $(OBJ) -o $@
+SRC		:=	arri_mem.c arri_modify.c arri_access.c arri_checks.c arri_rules.c arri_lis.c \
+		   	queue_mem.c queue_checks.c \
+		   	hashset.c \
+		   	list_mem.c list_modify.c list_access.c list_checks.c list_rules.c list_bound.c \
+		   	put.c \
+			parser_args.c parser_validate.c parser_str.c \
+			bfs_sort.c bfs_state.c bfs_print.c \
+			lis_sort.c lis_cost.c lis_rule.c lis_rule_p.c lis_rule_r.c lis_rule_rr.c lis_rule_s.c \
+			main.c
+OBJ		:=	$(SRC:.c=.o)
 
-# Compile step (with mkdir -p to create folder structure in build/)
-build/%.o: src/%.c
-	@mkdir -p $(dir $@)
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Remove build artifacts
 clean:
-	rm -rf build $(TARGET)
+	$(RM) $(OBJ)
 
-# Run the program
-run: $(TARGET)
-	./$(TARGET)
+fclean: clean
+	$(RM) $(NAME)
 
-.PHONY: all clean run
-
+re: fclean all
