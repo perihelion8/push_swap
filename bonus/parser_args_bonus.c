@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_args.c                                      :+:      :+:    :+:   */
+/*   parser_args_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 15:33:50 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/30 18:49:44 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:47:36 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <stdlib.h>
-#include "hashset.h"
-#include "parser_internal.h"
+#include "hashset_bonus.h"
+#include "parser_internal_bonus.h"
 
 static t_arri	*parser_ranked_arri(int *values, int size)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_modify.c                                      :+:      :+:    :+:   */
+/*   list_modify_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 11:33:21 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:50:43 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:46:45 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_internal.h"
+#include "list_internal_bonus.h"
 
 int	list_prepend(t_list *lst, int key)
 {

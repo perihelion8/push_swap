@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   types_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 07:45:19 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:12:51 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:42:55 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#ifndef TYPES_BONUS_H
+# define TYPES_BONUS_H
 
 # include <stddef.h>
 

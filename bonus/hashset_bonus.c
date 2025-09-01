@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashset.c                                          :+:      :+:    :+:   */
+/*   hashset_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 04:12:34 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/30 16:08:43 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:44:55 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "hashset.h"
+#include "hashset_bonus.h"
 
 static t_ulong	hash_ulong(t_ulong key)
 {

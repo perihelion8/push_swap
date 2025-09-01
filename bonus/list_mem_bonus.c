@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_mem.c                                         :+:      :+:    :+:   */
+/*   list_mem_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 20:17:50 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/24 00:12:17 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:46:23 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "list_internal.h"
+#include "list_internal_bonus.h"
 
 t_list_node	*list_node_create(int key)
 {

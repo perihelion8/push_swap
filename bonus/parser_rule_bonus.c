@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_rule.c                                      :+:      :+:    :+:   */
+/*   parser_rule_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:13:13 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:15:10 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:48:19 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser_internal.h"
+#include "parser_internal_bonus.h"
 
 int	parser_rule(char *str)
 {

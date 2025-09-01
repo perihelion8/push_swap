@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   list_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:53:20 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:52:02 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:45:46 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
+#ifndef LIST_BONUS_H
+# define LIST_BONUS_H
+
+# include "types_bonus.h"
 
 typedef struct s_list	t_list;
 

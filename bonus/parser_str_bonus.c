@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_str.c                                       :+:      :+:    :+:   */
+/*   parser_str_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 15:06:34 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/23 23:50:49 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:48:26 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser_internal.h"
+#include "parser_internal_bonus.h"
 
 int	parser_strcmp(const char *s1, const char *s2)
 {

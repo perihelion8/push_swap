@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arri.h                                             :+:      :+:    :+:   */
+/*   arri_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:31:15 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:47:55 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:43:27 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRI_H
-# define ARRI_H
+#ifndef ARRI_BONUS_H
+# define ARRI_BONUS_H
 
-# include "types.h"
+# include "types_bonus.h"
 
 typedef struct s_arri	t_arri;
 

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_internal.h                                    :+:      :+:    :+:   */
+/*   list_internal_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:23:46 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:53:01 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:46:12 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_INTERNAL_H
-# define LIST_INTERNAL_H
+#ifndef LIST_INTERNAL_BONUS_H
+# define LIST_INTERNAL_BONUS_H
 
-# include "types.h"
-# include "list.h"
+# include "list_bonus.h"
 
 typedef struct s_list_node
 {

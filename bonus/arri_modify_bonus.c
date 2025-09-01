@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arri_modify.c                                      :+:      :+:    :+:   */
+/*   arri_modify_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 15:58:38 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/22 22:13:36 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:43:59 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arri_internal.h"
+#include "arri_internal_bonus.h"
 
 int	arri_append(t_arri *arri, int n)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_validate.c                                  :+:      :+:    :+:   */
+/*   parser_validate_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 23:47:58 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/30 16:44:19 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:48:35 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser_internal.h"
+#include "parser_internal_bonus.h"
 
 static unsigned int	parser_digits_count(const char *str)
 {

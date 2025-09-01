@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arri_access.c                                      :+:      :+:    :+:   */
+/*   arri_access_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:25:15 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:48:33 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:43:10 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arri_internal.h"
+#include "arri_internal_bonus.h"
 
 t_uint	arri_len(t_arri *arri)
 {

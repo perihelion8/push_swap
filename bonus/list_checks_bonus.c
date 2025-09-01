@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_checks.c                                      :+:      :+:    :+:   */
+/*   list_checks_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 01:14:29 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:37:33 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:45:58 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_internal.h"
+#include "list_internal_bonus.h"
 
 int	list_is_sorted(t_list *lst)
 {

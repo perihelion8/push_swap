@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arri_mem.c                                         :+:      :+:    :+:   */
+/*   arri_mem_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 14:32:52 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/19 14:38:34 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:43:49 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "arri_internal.h"
+#include "arri_internal_bonus.h"
 
 t_arri	*arri_with_cap(t_uint cap)
 {

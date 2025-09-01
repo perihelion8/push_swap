@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_rules.c                                       :+:      :+:    :+:   */
+/*   list_rules_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:47:25 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 08:21:40 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:46:51 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_internal.h"
+#include "list_internal_bonus.h"
 
 int	list_push(t_list *dst, t_list *src)
 {

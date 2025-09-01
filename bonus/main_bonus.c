@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abazzoun <abazzoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 18:48:02 by abazzoun          #+#    #+#             */
-/*   Updated: 2025/08/31 09:09:54 by abazzoun         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:47:13 by abazzoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "types.h"
-#include "put.h"
-#include "arri.h"
-#include "list.h"
-#include "parser.h"
-#include "get_next_line.h"
+#include "types_bonus.h"
+#include "put_bonus.h"
+#include "arri_bonus.h"
+#include "list_bonus.h"
+#include "parser_bonus.h"
+#include "get_next_line_bonus.h"
 
 static void	append_to_a(t_list *a, t_arri *arri)
 {
